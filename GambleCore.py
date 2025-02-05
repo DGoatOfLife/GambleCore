@@ -1,6 +1,6 @@
 import random
 import time
-print('how much money do you want to deposit')
+print('How much money do you want to deposit?')
 money = int(input(' '))
 jackpotcounter = 0
 gavble = ["7️⃣ ","🥇 ","🍸 ","💎 ","♠️ ","♥️ "]
@@ -10,10 +10,10 @@ gamble = []
 for symbol, rority in rarity.items():
     gamble.extend([symbol] * rority)
 while int(money) > 0 and jackpotcounter < 3:
-    print('you have $' + str(money) + ' Do you wish to gamble: ')
+    print('you have $' + str(money) + ' Do you wish to gamble? ')
     gamblecore = input(" ")
     if gamblecore.lower not in ['y' or 'yes']:
-        print("too bad ur addicted you're gonna gamble anyway")
+        print("Too bad you're addicted. You're gonna gamble anyway.")
     gamble1 = random.randint(0,len(gamble) - 1)
     gamble2 = random.randint(0,len(gamble) - 1)
     gamble3 = random.randint(0,len(gamble) - 1)
