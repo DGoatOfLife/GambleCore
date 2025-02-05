@@ -3,56 +3,71 @@ import time
 print('How much money do you want to deposit?')
 money = int(input(' '))
 jackpotcounter = 0
-gavble = ["7️⃣ ","🥇 ","🍸 ","💎 ","♠️ ","♥️ "]
-rarity = {"7️⃣ ": 4, "🥇 ": 5,"🍸 ": 5,"💎 ": 7,"♠️ ": 8,"♥️ ": 8}
+extreameJACKPOT = {'money': 1000000, 'jackpotcounter': 30000} #☆*: .｡. o(≧▽≦)o .｡.:*☆
+jACKPOT = {'money': 2500, 'jackpotcounter': 0.75} # 🥇, 🍸
+miniJACKPOT = {'money': 1000, 'jackpotcounter': 0.5} # 💎
+smallwin = {'money': 150, 'jackpotcounter': 0.25} # ♥️, ♠️
+MajorJACKPOT = {'money': 10000, 'jackpotcounter': 1} # 7️⃣
+gavble = ["7️⃣ ","🥇 ","🍸 ","💎 ","♠️ ","♥️ ", '☆*: .｡. o(≧▽≦)o .｡.:*☆']
+rarity = {"7️⃣ ": 40, "🥇 ": 50,"🍸 ": 50,"💎 ": 70,"♠️ ": 80,"♥️ ": 80, '☆*: .｡. o(≧▽≦)o .｡.:*☆': 3}
 # 7️⃣: $1000 4|  🥇: $2500 5|  🍸: $2500 5|  💎: $1000 7|  ♠️: $150 8|  ♥️: $150 8
 gamble = []
 for symbol, rority in rarity.items():
     gamble.extend([symbol] * rority)
-while int(money) > 0 and jackpotcounter < 3:
+while int(money) >= 25 and jackpotcounter < 30000:
     print('you have $' + str(money) + ' Do you wish to gamble? ')
     gamblecore = input(" ")
     if gamblecore.lower not in ['y' or 'yes']:
         print("Too bad you're addicted. You're gonna gamble anyway.")
-    gamble1 = random.randint(0,len(gamble) - 1)
-    gamble2 = random.randint(0,len(gamble) - 1)
-    gamble3 = random.randint(0,len(gamble) - 1)
-    print(gamble[gamble1] + gamble[gamble2] + gamble[gamble3])
+    A1 = random.randint(0,len(gamble) - 1)
+    B1 = random.randint(0,len(gamble) - 1)
+    C1 = random.randint(0,len(gamble) - 1)
+    print(gamble[A1] + gamble[B1] + gamble[C1])
     money = money - 25
-    if gamble[gamble1] == gamble[gamble2] and gamble[gamble1] == gamble[gamble3]:
-        Damble = gamble[gamble1]
+    if gamble[A1] == gamble[B1] and gamble[A1] == gamble[C1]:
+        Damble = gamble[A1]
         if Damble == "7️⃣ ":
             print("MAJOR JACKPOT!!!!")
-            jackpotcounter += 1
-            money = money + 10000
+            jackpotcounter += MajorJACKPOT['jackpotcounter']
+            #money += 10000
+            money += MajorJACKPOT['money']
             print('you now have $' + str(money))
         if Damble == "🥇 ":
-            print('small JACKPOT')
-            jackpotcounter += 0.75
-            money = money + 2500
+            print('JACKPOT')
+            jackpotcounter += jACKPOT['jackpotcounter']
+            #money += 2500
+            money += jACKPOT['money']
             print('you now have $' + str(money))
         if Damble == "🍸 ":
-            print('small JACKPOT')
-            jackpotcounter += 0.75
-            money = money + 2500
+            print('JACKPOT')
+            jackpotcounter += jACKPOT['jackpotcounter']
+            #money += 2500
+            money += jACKPOT['money']
             print('you now have $' + str(money))
         if Damble == "💎 ":
             print('mini JACKPOT')
-            jackpotcounter += 0.5
-            money = money + 1000
+            jackpotcounter += miniJACKPOT['jackpotcounter']
+            #money += 1000
+            money += miniJACKPOT['money']
             print('you now have $' + str(money))
         if Damble == "♥️ ":
             print('small win')
-            jackpotcounter += 0.25
-            money = money + 150
+            jackpotcounter += smallwin['jackpotcounter']
+            #money += 150
+            money += smallwin['money']
             print('you now have $' + str(money))
         if Damble == "♠️ ":
             print('small win')
-            jackpotcounter += 0.25
-            money = money + 150
+            jackpotcounter += smallwin['jackpotcounter']
+            #money += 150
+            money += smallwin['money']
             print('you now have $' + str(money))
+        if Damble == "☆*: .｡. o(≧▽≦)o .｡.:*☆":
+            print('EXTREAME JACKPOT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            jackpotcounter += extreameJACKPOT['jackpotcounter']
+            money += extreameJACKPOT['money']
     if gamblecore == 'withdraw':
-        print('you have successfully withdrawn your money ')
+        print('Succesfully withdrawing your money')
         time.sleep(1.4)
         print("watch out though I'm Indian")
         time.sleep(6.3214)
@@ -60,9 +75,10 @@ while int(money) > 0 and jackpotcounter < 3:
         time.sleep(1.4)
         print("money permenantly left in code")
         break
+    if gamblecore == 'counter':
+        print(jackpotcounter)
         
-        
-if jackpotcounter == 3:
+if jackpotcounter >= 3:
     print('You are too lucky for this site, also ur now not allowed to withdraw any money.')
 if money <= 0:
-    print("I'm so sorry you're broke, feel free to break the keyboard in front of you, or you could always gimme more money")
+    print("I'm so sorry you're broke or don't have enough money to play again, feel free to break the keyboard in front of you, or you could always gimme more money")
