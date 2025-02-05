@@ -1,0 +1,2 @@
+# GambleCore
+Slot machine code
