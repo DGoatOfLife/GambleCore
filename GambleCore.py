@@ -36,7 +36,7 @@ def SlotMachine(money):
             rarity.update({"♥️ ": 6000})
         if gamble[A1] == "☆*: .｡. o(≧▽≦)o .｡.:*☆ ":
             rarity.update({"☆*: .｡. o(≧▽≦)o .｡.:*☆ ": 225})
-        print(rarity)
+        #print(rarity)
         B1 = random.randint(0,len(gamble) - 1)
         if gamble[B1] == "7️⃣ " and gamble[A1] == gamble[B1]:
             rarity.update({"7️⃣ ": 1500})
@@ -52,7 +52,7 @@ def SlotMachine(money):
             rarity.update({"♥️ ": 3000})
         if gamble[B1] == "☆*: .｡. o(≧▽≦)o .｡.:*☆ ":
             rarity.update({"☆*: .｡. o(≧▽≦)o .｡.:*☆ ": 200})
-        print(rarity)
+        #print(rarity)
         C1 = random.randint(0,len(gamble) - 1)
         rarity = {"7️⃣ ": 4000, "🥇 ": 5000,"🍸 ": 5000,"💎 ": 7000,"♠️ ": 8000,"♥️ ": 8000, "☆*: .｡. o(≧▽≦)o .｡.:*☆ ": 300}
         print(gamble[A1] + gamble[B1] + gamble[C1])
